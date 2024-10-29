@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --text-color: #333333;
+    --blue-500: #007bff;
+    --yellow-500: #ffc107;
+    --green-500: #28a745;
+    --blue-400: #0056b3;
+    --yellow-400: #ffca28;
+    --green-400: #218838;
+}

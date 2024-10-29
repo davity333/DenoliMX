@@ -1,0 +1,57 @@
+<div id="introduction" class="w-full h-[60vh] flex pt-[8vh]">
+    <div class="text-white w-full">
+        <div class="flex">
+            <!-- Contenedor del texto y el botón -->
+            <div class="ml-[8vh] max-w-[50%]"> <!-- Ajuste de posición y ancho -->
+                <p class="font-bold text-[5vh] mb-4">DENUNCIA Y RECIBE APOYO CON NUESTROS SERVICIOS</p>
+                <p class="text-[2.4vh] pr-8 text-justify mb-4">
+                    Bienvenido a DENOLIMX, la plataforma diseñada para recibir denuncias anónimas de forma segura y
+                    confidencial. Aquí, podrás reportar situaciones de manera fácil y rápida, sin revelar tu identidad. 
+                    Nos comprometemos a proteger tu privacidad y asegurar que cada denuncia sea tratada con la seriedad que merece.
+                    Tu voz es importante, y este es el espacio donde puedes contribuir a un entorno más justo y transparente, 
+                    con total discreción.
+                </p>
+                <button class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                    Ver más
+                </button>
+            </div>
+            <div id="carrusel" class="overflow-hidden">
+                <ul class="flex h-[40vh] animate-slide">
+                    <li class="flex-shrink-0 w-full flex justify-center items-center">
+                        <img src="./assets/denuncia.png" alt="Denuncia" class="">
+                    </li>
+                    <li class="flex-shrink-0 w-full flex justify-center items-center">
+                        <img src="./assets/documento.png" alt="Documento" class="">
+                    </li>
+                    <li class="flex-shrink-0 w-full flex justify-center items-center">
+                        <img src="./assets/psicologia.png" alt="Psicología" class="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fondo">
+    <div class="flex justify-center">
+        <img [src]="hoverFoto" alt="Imagen" class="h-[25vh] absolute -mt-[10vh]"
+            (mouseenter)="cambioImagen()" (mouseleave)="regresoImagen()" />
+    </div>
+    
+    <section class="mt-[17vh]">
+    <div class="flex flex-col items-center justify-center ">
+        <p class="text-xl font-semibold text-white">Selecciona el tipo de denuncia</p>
+        <div class="flex justify-center inline-block w-[40vh]">
+            <select class="w-[60vh] h-[5vh] rounded-2xl bg-[#c5bfbf] border-2 border-blue-700 cursor-pointer text-gray-800 appearance-none pr-8 mt-2">
+                <option *ngFor="let object of crimens" [value]="object.value" class="bg-[#c5bfbf] text-gray-800">
+                    {{ object.label }}
+                </option>
+            </select>
+        </div>
+        <button class="mt-4 px-6 py-2 text-white bg-[#511515] rounded-full hover:bg-[#9b2525] transition-colors duration-200">
+            Continuar
+        </button>
+    </div>
+    </section>
+</div>
+<div class="h-[1vh] bg-[#6b5b51]"></div>

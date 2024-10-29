@@ -1,0 +1,49 @@
+#introduction{
+    background: rgb(41,132,209);
+background: linear-gradient(0deg, rgba(41,132,209,1) 7%, rgba(44,111,201,1) 93%, rgba(41,132,209,1) 100%);
+}
+
+#carrusel {
+    width: 100%;
+    overflow: hidden;
+}
+
+#carrusel ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: 100%; 
+    animation: slide 18s infinite; 
+}
+
+#carrusel li {
+    list-style: none;
+    width: 100%;
+    flex: 0 0 100%; 
+}
+
+#carrusel img {
+    width: 60%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0%); }      /* Primera imagen */
+    30% { transform: translateX(0%); }     /* Pausa en la primera imagen */
+    
+    35% { transform: translateX(-100%); }  /* Segunda imagen */
+    65% { transform: translateX(-100%); }  /* Pausa en la segunda imagen */
+    
+    70% { transform: translateX(-200%); }  /* Tercera imagen */
+    100% { transform: translateX(-200%); } /* Pausa en la tercera imagen */
+}
+
+#fondo{
+    height: 39vh;
+    width: 100%;
+    background-image: url("../../../../../../public/assets/fondo.png");
+    background-size: cover;
+    animation: animate 10s infinite;
+}
