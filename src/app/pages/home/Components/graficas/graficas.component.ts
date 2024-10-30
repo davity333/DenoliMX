@@ -20,7 +20,7 @@ export class GraficasComponent implements OnInit{
   ngOnInit() {
     this.setupChart1(30); 
     this.setupChart2(50);
-    this.setupChart3(70); 
+    this.setupChart3(98); 
   }
 
   setupChart1(porcentaje: number) {

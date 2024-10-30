@@ -6,13 +6,14 @@ shadow-[0px_9px_5px_-1px_rgba(0,0,0,0.13)] z-40 sticky top-0">
         <div class="cursor-pointer flex gap-10 font-semibold items-center">
             <p class="px-6 py-1 duration-150 hover:bg-[#81c0de5a] hover:duration-150 rounded-xl">Lugares</p>
             <p class="px-6 py-1 duration-150 hover:bg-[#81c0de5a] hover:duration-150 rounded-xl">Ayuda psicológica</p>
+            <p class="px-6 py-1 duration-150 hover:bg-[#81c0de5a] hover:duration-150 rounded-xl">Empresa</p>
         </div>
     </div>
 
     <div class="flex font-semibold items-center gap-6 mr-6">
-        <p class="hover:text-[#c32f2f] cursor-pointer">Iniciar sesión</p>
+        <p class="hover:text-[#c32f2f] cursor-pointer" [routerLink]="['/login']">Iniciar sesión</p>
         <p class="px-6 py-2  duration-150 hover:rounded-2xl hover:bg-[#ccdfead6]
-        cursor-pointer hover:duration-150">Registrarse</p>
+        cursor-pointer hover:duration-150" [routerLink]="['/register']">Registrarse</p>
     </div>
 </header>
 

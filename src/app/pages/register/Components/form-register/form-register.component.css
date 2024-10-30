@@ -1,7 +1,7 @@
 #fondo{
     height: 39vh;
     width: 100%;
-    background-image: url("../../../../public/assets/ciudad.jpg");
+    background-image: url("../../../../../../public/assets/ciudad.jpg");
     background-size: cover;
     animation: animate 10s infinite;
 }
