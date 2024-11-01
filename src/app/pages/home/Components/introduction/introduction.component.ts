@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CategoriaService } from '../../Services/categoria.service';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-introduction',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './introduction.component.html',
   styleUrl: './introduction.component.css'
 })
@@ -24,8 +26,10 @@ export class IntroductionComponent {
     { value: 'Contaminacion ambiental', label: 'Contaminación ambiental' }
 ];
 
-hoverFoto: string = './assets/signo.png';
+  constructor(private categoria: CategoriaService){}
+  @ViewChild('mySelect') mySelect!: ElementRef<HTMLSelectElement>;
 
+hoverFoto: string = './assets/signo.png';
   cambioImagen() {
     this.hoverFoto = './assets/denunciamano.png';
   }
@@ -33,4 +37,10 @@ hoverFoto: string = './assets/signo.png';
   regresoImagen() {
     this.hoverFoto = './assets/signo.png';
   }
+
+  mandarCategoria(): void {
+    const categoria = this.mySelect.nativeElement.value;
+    this.categoria.setCategoria(categoria);
+  }
+
 }

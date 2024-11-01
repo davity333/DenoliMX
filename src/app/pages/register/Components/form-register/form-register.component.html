@@ -2,7 +2,8 @@
 hover:cursor-pointer absolute" title="Home" [routerLink]="['/']" id="logo">
 <div class="absolute inset-0 z-10 shine-effect"></div>
 <div class="flex items-center justify-center min-h-screen" id="fondo">
-    <form action="#" class="flex flex-col justify-center p-8 space-y-6 items-center bg-white shadow-lg rounded-lg w-96">
+    <form action="#" class="flex flex-col justify-center p-8 space-y-6 items-center 
+    bg-white shadow-lg rounded-lg w-96" [formGroup]="registro">
       <p class="text-2xl font-semibold mb-4">Registrate</p>
       
       <!-- Input para Nombre -->
@@ -12,7 +13,9 @@ hover:cursor-pointer absolute" title="Home" [routerLink]="['/']" id="logo">
           class="peer w-full bg-transparent outline-none px-4 py-2
           text-base rounded-md bg-white border border-[#4070f4] focus:shadow-md"
           id="nombre"
-          type="text"/>
+          type="text" 
+          formControlName="nombre"
+          />
         <label
           class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 
           peer-focus:top-0 peer-focus:left-3 font-light text-base 
@@ -21,6 +24,23 @@ hover:cursor-pointer absolute" title="Home" [routerLink]="['/']" id="logo">
           for="nombre">
           Nombre</label>
       </div>
+
+            <!-- Input para Apellidos -->
+            <div class="w-full relative flex rounded-xl">
+              <input
+                required=""
+                class="peer w-full bg-transparent outline-none px-4 py-2
+                text-base rounded-md bg-white border border-[#4070f4] focus:shadow-md"
+                id="nombre"
+                type="text" formControlName="apellido"/>
+              <label
+                class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 
+                peer-focus:top-0 peer-focus:left-3 font-light text-base 
+                peer-focus:text-sm peer-focus:text-[#4070f4] peer-valid:-top-0 
+                peer-valid:left-3 peer-valid:text-sm peer-valid:text-[#4070f4] duration-150"
+                for="nombre">
+                Apellidos</label>
+            </div>
       
       <!-- Input para Email -->
       <div class="w-full relative flex rounded-xl">
@@ -29,7 +49,7 @@ hover:cursor-pointer absolute" title="Home" [routerLink]="['/']" id="logo">
           class="peer w-full bg-transparent outline-none px-4 py-2
           text-base rounded-md bg-white border border-[#4070f4] focus:shadow-md"
           id="email"
-          type="email"/>
+          type="email" formControlName="email"/>
         <label
           class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 
           peer-focus:top-0 peer-focus:left-3 font-light text-base 
@@ -46,7 +66,7 @@ hover:cursor-pointer absolute" title="Home" [routerLink]="['/']" id="logo">
           class="peer w-full bg-transparent outline-none px-4 py-2
           text-base rounded-md bg-white border border-[#4070f4] focus:shadow-md"
           id="password"
-          type="password"/>
+          type="password" formControlName="password"/>
         <label
           class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 
           peer-focus:top-0 peer-focus:left-3 font-light text-base 
@@ -59,7 +79,7 @@ hover:cursor-pointer absolute" title="Home" [routerLink]="['/']" id="logo">
       <!-- Botón de Login -->
       <button
         class="w-full bg-sky-500 text-white py-2 rounded-md shadow-md hover:bg-sky-600 transition duration-300"
-      >
+        (click)="registrarse()">
         Login
       </button>
   

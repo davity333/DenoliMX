@@ -1,0 +1,70 @@
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-4">Agregar psicólogos</h1>
+
+    <div class="p-6 mb-3">
+        <h2 class="text-xl font-semibold mb-4">Formulario</h2>
+        <form [formGroup]="psicologos">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-gray-700" for="nombre">Nombre</label>
+                    <input type="text" id="nombre" class="mt-1 p-2 border border-gray-300 rounded-md w-full" 
+                    required formControlName="nombre" [(ngModel)]="nombre">
+                </div>
+                <div>
+                    <label class="block text-gray-700" for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="apellidos">
+                </div>
+                <div>
+                    <label class="block text-gray-700" for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="telefono">
+                </div>
+                <div>
+                    <label class="block text-gray-700" for="correo">Correo</label>
+                    <input type="email" id="correo" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="email">
+                </div>
+                <div>
+                    <label class="block text-gray-700" for="anos-experiencia">Años de experiencia</label>
+                    <input type="number" id="anos-experiencia" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="aniosExperiencia">
+                </div>
+                <div>
+                    <label class="block text-gray-700" for="especialidad">Especialidad</label>
+                    <input type="text" id="especialidad" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="especialidad">
+                </div>
+            </div>
+            <button type="submit" class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800" (click)="agregarPsicologo()">Agregar psicóloga</button>
+        </form>
+    </div>
+    
+    <div class="overflow-y-auto h-[28vh]">
+        <h2 class="text-xl font-semibold mb-4">Lista de psicólogos</h2>
+        <table class="min-w-full bg-white border border-gray-300">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="py-2 px-4 border">Nombre</th>
+                    <th class="py-2 px-4 border">Apellidos</th>
+                    <th class="py-2 px-4 border">Años de experiencia</th>
+                    <th class="py-2 px-4 border">Especialidad</th>
+                    <th class="py-2 px-4 border">Teléfono</th>
+                    <th class="py-2 px-4 border">Correo</th>
+                    <th class="py-2 px-4 border">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let object of psicologasCatalogo">
+                    <td class="py-2 px-4 border">{{object.nombre}}</td>
+                    <td class="py-2 px-4 border">{{object.apellido}}</td>
+                    <td class="py-2 px-4 border">{{object.aniosExperiencia}}</td>
+                    <td class="py-2 px-4 border">{{object.especialidad}}</td>
+                    <td class="py-2 px-4 border">{{object.telefono}}</td>
+                    <td class="py-2 px-4 border">{{object.email}}</td>
+                    <td class="py-2 px-4 border flex justify-center gap-6">
+                        <img src="./assets/actualizar.png" class="h-[3vh] 
+                        hover:bg-[#504c4c24] cursor-pointer rounded-lg" alt="" title="Actualizar">
+                        <img src="./assets/eliminar.png" class="h-[3vh] 
+                        hover:bg-[#504c4c24] cursor-pointer rounded-lg" alt="" title="Eliminar">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

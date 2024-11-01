@@ -4,6 +4,8 @@ import { IntroductionComponent } from './Components/introduction/introduction.co
 import { GraficasComponent } from './Components/graficas/graficas.component';
 import { PsicologiaComponent } from './Components/psicologia/psicologia.component';
 import { MensajeComponent } from './Components/mensaje/mensaje.component';
+import { UsersService } from '../../auth/users.service';
+import { OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -11,6 +13,6 @@ import { MensajeComponent } from './Components/mensaje/mensaje.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent{
 
 }
