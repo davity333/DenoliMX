@@ -23,7 +23,7 @@ shadow-[0px_5px_20px_-16px_rgba(0,0,0,0.88)] ">
             formControlName="descripcion"></textarea>
         </div>
 
-        <div class="bg-transparent p-2 flex flex-col"> 
+        <div class="bg-transparent ml-2 mr-2 flex flex-col"> 
             <label for="">Selecciona el lugar de la empresa para realizar la denuncia</label>
             <select class="h-[5vh] border-[0.3vh] border-[#0000004b] rounded-xl" formControlName="nombreEmpresa">
                 <option *ngFor="let object of companiasNames" [value]="object.nombreEmpresa">
@@ -34,6 +34,8 @@ shadow-[0px_5px_20px_-16px_rgba(0,0,0,0.88)] ">
         </div>
         
         <div class="bg-transparent p-2 flex flex-col"> 
+            <label for="">Fecha</label>
+            <input type="date" class="mb-3 border-[0.3vh] border-[#0000004b]" formControlName="fecha">
             <label for="">Ubicacion del incidente(No obligatoria)</label>
             <input type="file" multiple formControlName="evidencia">
         </div>

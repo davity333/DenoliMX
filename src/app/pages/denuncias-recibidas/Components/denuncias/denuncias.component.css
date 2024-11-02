@@ -1,0 +1,14 @@
+#fondo{
+    height: 40vh;
+    width: 100%;
+    background-image: url("../../../../../../public/assets/fiscalia.png");
+    background-size: cover;
+    animation: animate 10s infinite;
+    box-shadow: 4px -8px 62px 5px rgba(0,0,0,0.75) inset;
+-webkit-box-shadow: 4px -8px 62px 5px rgba(0,0,0,0.75) inset;
+-moz-box-shadow: 4px -8px 62px 5px rgba(0,0,0,0.75) inset;
+
+box-shadow: 4px -8px 62px 72px rgba(0,0,0,0.34) inset;
+-webkit-box-shadow: 4px -8px 62px 72px rgba(0,0,0,0.34) inset;
+-moz-box-shadow: 4px -8px 62px 72px rgba(0,0,0,0.34) inset;
+}

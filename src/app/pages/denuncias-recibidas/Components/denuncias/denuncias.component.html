@@ -1,0 +1,48 @@
+<div class="p-14 text-white" id="fondo">
+<h1 class="text-[3.6vh] font-normal">Gestión de denuncias anonimas</h1>
+<p class="text-justify mt-2 text-[2.4vh]">En este apartado, recibirás todas las denuncias anónimas realizadas por los usuarios. 
+    Cada denuncia incluye detalles para que puedas tomar las acciones necesarias.
+    Una vez que revises una denuncia, podrás marcarla como recibida y, si lo deseas, 
+    enviar un mensaje al denunciante para mantenerlo informado sobre el estado de su caso. 
+    Esto te permitirá gestionar y confirmar cada caso con transparencia y asegurar el 
+    seguimiento adecuado.
+</p>
+</div>
+<div class="bg-[#463030] w-auto h-[1vh]"></div>
+
+<div class="overflow-auto h-[42vh] flex justify-center mt-10"> 
+    <table class="w-full border-[0.2vh] border-[#00000071]">
+        <thead>
+            <tr class="bg-[#e8f0f0] border-[0.2vh] border-[#0000003a]">
+                <th class="px-9 py-3 text-black text-left">Fecha de denuncia</th>
+                <th class="px-9 py-3 text-black text-left">Lugar para demandar</th>
+                <th class="px-9 py-3 text-black text-left">Codigo</th>
+                <th class="px-12 py-3 text-black text-left text-center">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="bg-[#f1f5f4] hover:bg-[#e8eeee] border-[0.2vh] border-[#00000071]" *ngFor="let object of denunciaInterfaces">
+                <td class="px-9 py-3 text-left border-b bborder-[#0000003a] border-r border-[#0000003a]">{{object.fecha}}</td> 
+                <td class="px-9 py-3 text-left border-b bborder-[#0000003a] border-r border-[#0000003a]">{{object.tipoDenuncia}}</td> 
+                <td class="px-9 py-3 text-left border-b bborder-[#0000003a] border-r border-[#0000003a]">{{object.lugarDemandar}}</td> 
+                <td class="px-9 py-3 text-left border-b border-[#0000003a] border-r border-[#0000003a]">{{object.codigo}}</td> 
+                <td class="px-12 py-3 text-left border-b border-[#0000003a] text-center space-x-4">
+                    <button class="bg-[#539776] hover:bg-[#43765df8] text-white px-4 py-2 rounded-md">
+                        Recibida
+                    </button>
+                    <button class="ml-2 bg-[#4f9da9] hover:bg-[#448690] text-white px-4 py-2 rounded-md">
+                        Ver detalles
+                    </button>
+                    <button class="ml-2 bg-[#a9934f] hover:bg-[#7e7838] text-white px-4 py-2 rounded-md" (click)="openModal()">
+                        Enviar mensaje
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="modal">
+    <app-cuadro-modal (closeModal)="closeModal()"></app-cuadro-modal>
+</div>

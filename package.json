@@ -21,6 +21,7 @@
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.2",
+    "@sweetalert2/themes": "^5.0.18",
     "@swimlane/ngx-charts": "^20.5.0",
     "chart.js": "^4.4.6",
     "echarts": "^5.5.1",
@@ -30,6 +31,7 @@
     "primeicons": "^7.0.0",
     "primeng": "^17.18.11",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.14.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
