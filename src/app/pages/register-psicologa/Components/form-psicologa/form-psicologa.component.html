@@ -8,30 +8,42 @@
                 <div>
                     <label class="block text-gray-700" for="nombre">Nombre</label>
                     <input type="text" id="nombre" class="mt-1 p-2 border border-gray-300 rounded-md w-full" 
-                    required formControlName="nombre" [(ngModel)]="nombre">
+                    required formControlName="nombre" [(ngModel)]="nombre" #nombres>
                 </div>
                 <div>
                     <label class="block text-gray-700" for="apellidos">Apellidos</label>
-                    <input type="text" id="apellidos" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="apellidos">
+                    <input type="text" id="apellidos" class="mt-1 p-2 border border-gray-300 rounded-md w-full" 
+                    required formControlName="apellido" [(ngModel)]="apellido" #apellidos>
                 </div>
                 <div>
                     <label class="block text-gray-700" for="telefono">Teléfono</label>
-                    <input type="tel" id="telefono" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="telefono">
+                    <input type="number" id="telefono" class="mt-1 p-2 border border-gray-300 rounded-md w-full" 
+                    required formControlName="telefono" [(ngModel)]="telefono" #telefonos (input)="telefonoLoingitud($event)">
                 </div>
                 <div>
                     <label class="block text-gray-700" for="correo">Correo</label>
-                    <input type="email" id="correo" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="email">
+                    <input type="email" id="correo" class="mt-1 p-2 border border-gray-300 rounded-md w-full" 
+                    required formControlName="email" [(ngModel)]="email" #emails>
                 </div>
                 <div>
                     <label class="block text-gray-700" for="anos-experiencia">Años de experiencia</label>
-                    <input type="number" id="anos-experiencia" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="aniosExperiencia">
+                    <input type="number" id="anos-experiencia" class="mt-1 p-2 border border-gray-300 rounded-md w-full" 
+                    required formControlName="aniosExperiencia" [(ngModel)]="anios" (input)="aniosLogintud($event)">
                 </div>
                 <div>
                     <label class="block text-gray-700" for="especialidad">Especialidad</label>
-                    <input type="text" id="especialidad" class="mt-1 p-2 border border-gray-300 rounded-md w-full" required formControlName="especialidad">
+                    <input type="text" id="especialidad" class="mt-1 p-2 border border-gray-300 rounded-md w-full" 
+                    required formControlName="especialidad" [(ngModel)]="especialiadad" #especialidades>
                 </div>
             </div>
-            <button type="submit" class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800" (click)="agregarPsicologo()">Agregar psicóloga</button>
+            <div class="flex gap-x-3">
+            <button type="submit" class="bg-[#4a826f] text-white py-2 px-4 rounded hover:bg-[#3d6a5b]" 
+            (click)="agregarPsicologo()" *ngIf="btnAgregar">Agregar psicóloga</button>
+            <button type="submit" class="bg-[#5a9ab0] text-white py-2 px-4 rounded hover:bg-[#467483]" 
+            (click)="update()" *ngIf="btnActualizar">Actualizar psicóloga</button>
+            <button type="submit" class="bg-[#c16d6d] text-white py-2 px-4 rounded hover:bg-[#9d5a5a]" 
+            (click)="cancelar()" *ngIf="btncancelar">Cancelar</button>
+            </div>
         </form>
     </div>
     
@@ -39,7 +51,7 @@
         <h2 class="text-xl font-semibold mb-4">Lista de psicólogos</h2>
         <table class="min-w-full bg-white border border-gray-300">
             <thead>
-                <tr class="bg-gray-100">
+                <tr class="bg-[#c3d5d8]">
                     <th class="py-2 px-4 border">Nombre</th>
                     <th class="py-2 px-4 border">Apellidos</th>
                     <th class="py-2 px-4 border">Años de experiencia</th>
@@ -50,7 +62,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let object of psicologasCatalogo">
+                <tr *ngFor="let object of psicologasCatalogo let i=index">
                     <td class="py-2 px-4 border">{{object.nombre}}</td>
                     <td class="py-2 px-4 border">{{object.apellido}}</td>
                     <td class="py-2 px-4 border">{{object.aniosExperiencia}}</td>
@@ -59,9 +71,9 @@
                     <td class="py-2 px-4 border">{{object.email}}</td>
                     <td class="py-2 px-4 border flex justify-center gap-6">
                         <img src="./assets/actualizar.png" class="h-[3vh] 
-                        hover:bg-[#504c4c24] cursor-pointer rounded-lg" alt="" title="Actualizar">
+                        hover:bg-[#504c4c24] cursor-pointer rounded-lg" alt="" title="Actualizar" (click)="iconBtnUpdate(i, object.idpsicologa)">
                         <img src="./assets/eliminar.png" class="h-[3vh] 
-                        hover:bg-[#504c4c24] cursor-pointer rounded-lg" alt="" title="Eliminar">
+                        hover:bg-[#504c4c24] cursor-pointer rounded-lg" alt="" title="Eliminar" (click)="deleted(object.idpsicologa)">
                     </td>
                 </tr>
             </tbody>

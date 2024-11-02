@@ -1,4 +1,5 @@
 export interface PsicologosInterface {
+    idpsicologa:number,
     nombre:string,
     apellido:string,
     aniosExperiencia:string,
@@ -6,3 +7,4 @@ export interface PsicologosInterface {
     telefono:string,
     email:string
 }
+export type PsicologosInterfacePost = Omit<PsicologosInterface, 'idpsicologa'>;

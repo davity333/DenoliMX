@@ -32,19 +32,18 @@ export class FormCompanyComponent {
         if(this.company.valid ){
           const empresaData = {
             nombreEmpresa: this.company.value.nombre,
-            nombreDuenio: this.company.value.duenio,
+            nombreDueno: this.company.value.duenio,
             ubicacion: this.company.value.ubicacion,
             cp: this.company.value.codigo,
             horario: this.company.value.horario,
-            imagen: null,
-            userIdUser: this.id 
+            imagen: "",
+            user_idUser: this.id 
         };
-
         console.log("Datos de la empresa a agregar:", empresaData);
           this.empresa.createCompany(empresaData).pipe(tap({
             next(response) {
                 console.log(response);
-                if(response.status) {
+                if(response.status && response.data != null) {
                   alert("SE AGREGO LA EMPRESA")
                 }
             },
@@ -53,8 +52,6 @@ export class FormCompanyComponent {
                 alert("Hubo un error.")
             },
           })).subscribe()
-        }else{
-          alert("Datos incompletos")
         }
       }
 }

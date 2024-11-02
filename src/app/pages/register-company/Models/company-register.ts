@@ -1,9 +1,9 @@
 export interface CompanyRegister {
     nombreEmpresa: string,
-    nombreDuenio: string,
+    nombreDueno: string,
     ubicacion: string,
     cp: string,
     horario: string,
     imagen: string | null,
-    userIdUser : number
+    user_idUser : number
 }

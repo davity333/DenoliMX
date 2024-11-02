@@ -8,7 +8,7 @@
 <div class="flex justify-center">
 <div class="flex flex-col bg-[#fff] w-[90vh] p-10 mt-3 rounded-xl 
 shadow-[0px_5px_20px_-16px_rgba(0,0,0,0.88)] "> 
-    <div>
+    <form>
         <p class="text-[3vh] font-light">Datos de la denuncia</p>
 
         <div class="bg-transparent p-2 flex flex-col"> 
@@ -22,20 +22,22 @@ shadow-[0px_5px_20px_-16px_rgba(0,0,0,0.88)] ">
         </div>
 
         <div class="bg-transparent p-2 flex flex-col"> 
-            <label for="">Selecciona el lugar para realizar la empresa</label>
+            <label for="">Selecciona el lugar de la empresa para realizar la denuncia</label>
             <select name="" id="" class="h-[5vh] border-[0.3vh] border-[#0000004b] rounded-xl">
-                <option value="">hola</option>
+                <option *ngFor="let object of companiasNames" [value]="object.nombreEmpresa">
+                    {{ object.nombreEmpresa }}
+                </option>
             </select>
         </div>
-
+        
         <div class="bg-transparent p-2 flex flex-col"> 
             <label for="">Ubicacion del incidente</label>
             <input type="file" multiple>
         </div>
 
         <div class="flex justify-center">
-            <button class="bg-[#000] text-white w-full h-10 rounded-lg mt-4">Enviar denuncia anonima</button>
+            <button class="bg-[#000] text-white w-full h-10 rounded-lg mt-4" (click)="createDenuncia()">Enviar denuncia anonima</button>
         </div>
-    </div>
+    </form>
 </div>
 </div>
