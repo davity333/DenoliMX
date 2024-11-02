@@ -1,42 +1,45 @@
 <div class="flex justify-center mt-12">
 <div class="flex flex-col">
     <h1 class="text-2xl font-bold">Realiza tu denuncia</h1>
-    <h2 class="text-center text-[3vh]">{{categoria}}</h2>
+    <h2 class="text-center text-[3vh]">{{tipoDenuncia}}</h2>
 </div>
 </div>
 
 <div class="flex justify-center">
 <div class="flex flex-col bg-[#fff] w-[90vh] p-10 mt-3 rounded-xl 
 shadow-[0px_5px_20px_-16px_rgba(0,0,0,0.88)] "> 
-    <form>
+    <form [formGroup]="denunciaGroup">
         <p class="text-[3vh] font-light">Datos de la denuncia</p>
 
         <div class="bg-transparent p-2 flex flex-col"> 
-            <label for="">Ubicacion del incidente</label>
-            <input type="text" name="" id="" class="w-full border-[0.3vh] border-[#0000004b] h-8">
+            <label for="">Ubicacion del incidente (Estado y municipio)</label>
+            <input type="text" name="" id="" class="w-full border-[0.3vh] border-[#0000004b] h-8"
+            formControlName="ubicacion">
         </div>
 
         <div class="bg-transparent p-2 flex flex-col"> 
             <label for="">Descripción detallada</label>
-            <textarea class="w-full w-full border-[0.3vh] border-[#0000004b] h-[15vh]"></textarea>
+            <textarea class="w-full w-full border-[0.3vh] border-[#0000004b] h-[15vh]"
+            formControlName="descripcion"></textarea>
         </div>
 
         <div class="bg-transparent p-2 flex flex-col"> 
             <label for="">Selecciona el lugar de la empresa para realizar la denuncia</label>
-            <select name="" id="" class="h-[5vh] border-[0.3vh] border-[#0000004b] rounded-xl">
+            <select class="h-[5vh] border-[0.3vh] border-[#0000004b] rounded-xl" formControlName="nombreEmpresa">
                 <option *ngFor="let object of companiasNames" [value]="object.nombreEmpresa">
                     {{ object.nombreEmpresa }}
                 </option>
             </select>
+            
         </div>
         
         <div class="bg-transparent p-2 flex flex-col"> 
-            <label for="">Ubicacion del incidente</label>
-            <input type="file" multiple>
+            <label for="">Ubicacion del incidente(No obligatoria)</label>
+            <input type="file" multiple formControlName="evidencia">
         </div>
 
         <div class="flex justify-center">
-            <button class="bg-[#000] text-white w-full h-10 rounded-lg mt-4" (click)="createDenuncia()">Enviar denuncia anonima</button>
+            <button type="button" class="bg-[#000] text-white w-full h-10 rounded-lg mt-4" (click)="createDenuncia()">Enviar denuncia anonima</button>
         </div>
     </form>
 </div>

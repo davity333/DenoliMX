@@ -28,8 +28,6 @@ export class UsersService {
     );
 }
 
-
-
   validateUser(user: UserLogin): Observable<any>{
     let url = 'http://localhost:3000/api/v1/users/validate';
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
