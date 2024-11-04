@@ -15,7 +15,8 @@ import { CuadroModalComponent } from '../cuadro-modal/cuadro-modal.component';
 export class DenunciasComponent implements OnInit{
 
   denunciaInterfaces : DenunciaInterface[]=[];
-  modal:boolean = true;
+  modal:boolean = false;
+  codigo:number = 0;
   constructor(private denunciaService: DenunciaService){}
 
   ngOnInit(): void {
@@ -33,8 +34,10 @@ export class DenunciasComponent implements OnInit{
       })).subscribe();
   }
 
-  openModal() {
+  openModal(codigo:any) {
     this.modal = true;
+    this.codigo = codigo;
+    alert(codigo)
   }
 
   closeModal() {

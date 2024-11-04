@@ -1,24 +1,26 @@
-
 <div id="fondo">
     <div id="modal">
-        <div id="body">
-    
-            <div class="flex justify-between">
-            <p id="titulo">Noticias sobre la denuncia</p>
-            <p class="font-bold hover:text-gray-800 cursor-pointer" title="Cerrar">X</p>
+        <form id="body" [formGroup]="messagesForm">
+            <div class="flex justify-between items-center ">
+                <p id="titulo">Noticias sobre la denuncia</p>
+                <p class="font-bold hover:text-gray-800 cursor-pointer" title="Cerrar" (click)="close()">X</p>
             </div>
-            <label for="">Nombre del emisor</label>
-            <input type="text" name="" id="">
-                <p id="texto" class="font-light">Envia algun informe o noticia relevante sobre su 
-                    denuncia que realizo para 
-                    mantenerlo informada de cualquier suceso</p>
-            <textarea name="" id="textarea"></textarea>
-    
-            <div id="botones">
-            <button (click)="close()" class="bg-sky-400 px-7 py-2 mt-2">Cerrar</button>
-        </div>
-        </div>
-    
+            <p>Mensaje para el usuario con codigo: {{codigoDenuncia}}</p>
+
+            <div class="input-group mt-2">
+                <label for="emisor">Nombre del emisor</label>
+                <input type="text" id="emisor" placeholder="Ingresa tu nombre" formControlName="nombreAutoridad">
+            </div>
+
+            <div class="input-group">
+                <label for="informe">Envía algún informe o noticia relevante sobre su denuncia</label>
+                <textarea id="informe" placeholder="Escribe tu mensaje aquí..." formControlName="mensaje"></textarea>
+            </div>
+
+            <div id="botones" class="gap-6 font-medium mt-2">
+                <button class="bg-sky-400 px-7 py-2 mt-4 rounded-lg" (click)="enviarMensaje()">Enviar mensaje</button> 
+                <button class="bg-red-400 px-7 py-2 mt-4 rounded-lg">Actualizar mensaje</button> 
+            </div>
+        </form>
     </div>
-    </div>
-    
+</div>

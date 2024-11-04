@@ -15,6 +15,7 @@
         <thead>
             <tr class="bg-[#e8f0f0] border-[0.2vh] border-[#0000003a]">
                 <th class="px-9 py-3 text-black text-left">Fecha de denuncia</th>
+                <th class="px-9 py-3 text-black text-left">Tipo de denuncia</th>
                 <th class="px-9 py-3 text-black text-left">Lugar para demandar</th>
                 <th class="px-9 py-3 text-black text-left">Codigo</th>
                 <th class="px-12 py-3 text-black text-left text-center">Acciones</th>
@@ -34,7 +35,7 @@
                     <button class="ml-2 bg-[#4f9da9] hover:bg-[#448690] text-white px-4 py-2 rounded-md">
                         Ver detalles
                     </button>
-                    <button class="ml-2 bg-[#a9934f] hover:bg-[#7e7838] text-white px-4 py-2 rounded-md" (click)="openModal()">
+                    <button class="ml-2 bg-[#a9934f] hover:bg-[#7e7838] text-white px-4 py-2 rounded-md" (click)="openModal(object.codigo)">
                         Enviar mensaje
                     </button>
                 </td>
@@ -44,5 +45,5 @@
 </div>
 
 <div *ngIf="modal">
-    <app-cuadro-modal (closeModal)="closeModal()"></app-cuadro-modal>
+    <app-cuadro-modal [codigoDenuncia]="codigo" (closeModal)="closeModal()"></app-cuadro-modal>
 </div>
